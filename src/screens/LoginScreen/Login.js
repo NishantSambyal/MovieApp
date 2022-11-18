@@ -6,12 +6,25 @@ import {
   ScrollView,
   TextInput,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
 import React, {Component} from 'react';
 import {logo} from '../../assets';
 
 //class based component
 export class Login extends Component {
+  componentDidMount() {
+    setTimeout(() => {
+      alert('Hi there');
+    }, 5000);
+  }
+
+  componentWillUnmount() {
+    console.log('Ok bye bye tata');
+  }
+
+  printOnConsole() {}
+
   render() {
     return (
       <ScrollView>
@@ -21,27 +34,21 @@ export class Login extends Component {
           </View>
           <Text style={styles.title}>Log-in</Text>
 
-          <View style={{marginTop: 30}}>
-            <Text style={styles.label}>Email</Text>
+          <Text style={styles.label}>Email</Text>
 
-            <TextInput placeholder="Your email ID" style={styles.input} />
+          <TextInput placeholder="Your email ID" style={styles.input} />
 
-            <TextInput />
-          </View>
+          <Text style={styles.label}>Password</Text>
 
-          <View style={{marginTop: 26}}>
-            <Text style={styles.label}>Password</Text>
+          <TextInput
+            secureTextEntry
+            placeholder="Password"
+            style={styles.input}
+          />
 
-            <TextInput
-              secureTextEntry
-              placeholder="Password"
-              style={styles.input}
-            />
-
-            <TextInput />
-          </View>
-
-          <TouchableOpacity style={styles.loginWrapper}>
+          <TouchableOpacity
+            style={styles.loginWrapper}
+            onPress={this.printOnConsole}>
             <Text style={styles.loginButton}>Login</Text>
           </TouchableOpacity>
         </View>
@@ -74,6 +81,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 16,
+    marginTop: 40,
   },
   input: {
     margin: 8,
@@ -87,7 +95,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     paddingVertical: 15,
     paddingHorizontal: 80,
-    backgroundColor: 'rgb(0, 60, 120)',
+    backgroundColor: 'rgb(40, 20, 120)',
     alignSelf: 'center',
   },
   loginButton: {
