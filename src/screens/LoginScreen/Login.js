@@ -6,25 +6,12 @@ import {
   ScrollView,
   TextInput,
   TouchableOpacity,
-  ActivityIndicator,
 } from 'react-native';
 import React, {Component} from 'react';
 import {logo} from '../../assets';
 
 //class based component
 export class Login extends Component {
-  componentDidMount() {
-    setTimeout(() => {
-      alert('Hi there');
-    }, 5000);
-  }
-
-  componentWillUnmount() {
-    console.log('Ok bye bye tata');
-  }
-
-  printOnConsole() {}
-
   render() {
     return (
       <ScrollView>
@@ -48,7 +35,7 @@ export class Login extends Component {
 
           <TouchableOpacity
             style={styles.loginWrapper}
-            onPress={this.printOnConsole}>
+            onPress={() => this.props.navigation.navigate('Home')}>
             <Text style={styles.loginButton}>Login</Text>
           </TouchableOpacity>
         </View>
